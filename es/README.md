@@ -39,6 +39,5 @@
 - [Uso de Parámetros Nombrados](retrieving-data.md#uso-de-parámetros-nombrados)
 
 ## Optimización de consultas
-- [Paginación de Resultados](query-optimization.md#paginación-de-resultados)
 - [Uso de Índices y Claves Externas](query-optimization.md#uso-de-índices-y-claves-externas)
 - [Mejora del Rendimiento en Consultas Complejas](query-optimization.md#mejora-del-rendimiento-en-consultas-complejas)

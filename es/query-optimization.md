@@ -4,43 +4,6 @@
 optimizar tus consultas en KumbiaPHP para que sean más rápidas y eficientes. Prepárate para ser un maestro de la
 optimización de bases de datos.
 
-## Paginación de Resultados
-
-La paginación permite dividir grandes cantidades de datos en partes más pequeñas, facilitando el acceso y presentación
-de los resultados.
-
-### Ejemplo de Paginación
-
-Para paginar los resultados, añade un método que limite la cantidad de registros devueltos, comenzando desde un
-desplazamiento (`offset`).
-
-```php
-class Producto extends LiteRecord
-{
-    protected static $table = 'productos';
-
-    // Método para obtener productos paginados
-    public static function paginar($pagina, $porPagina) {
-        $offset = ($pagina - 1) * $porPagina;
-        $sql = "LIMIT $porPagina OFFSET $offset";
-        return static::filter($sql);
-    }
-}
-
-// Ejemplo de uso: Página 2 con 10 productos por página
-$productos = Producto::paginar(2, 10);
-foreach ($productos as $producto) {
-    echo $producto->nombre . PHP_EOL;
-}
-```
-
-### Nota:
-- Este ejemplo es básico y necesita verificaciones para evitar tratar de acceder a elementos de páginas que no existen.
-  Antes de realizar una consulta, asegúrate de que la página solicitada esté dentro de los límites disponibles,
-  calculando el total de registros y dividiéndolo entre la cantidad de resultados por página.
-- El tema de la paginación se tratará de forma más completa con la clase `ActiveRecord` una vez esté finalizada, ya que
-  proporcionará características adicionales.
-
 ## Uso de Índices y Claves Externas
 
 Los índices y las claves externas pueden mejorar el rendimiento de las consultas y asegurar la integridad de los datos.
